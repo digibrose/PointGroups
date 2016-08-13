@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotation Axis</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#2fb").click(function(){
+                $("#2f").slideToggle("slow");
+            });
+        });
+    </script>
+
+<style>
+
+</style>
+    <script src="xtaljs.js"></script>
+</head>
+<body>
+
+<h1>Point Groups 1.</h1>
+<p>
+In this section we are going to discuss the construction of the crystallographic point groups.
+In crystallography, a crystallographic point group is a set of symmetry operations, like rotations or reflections, that
+leave a central point fixed.  Carrying out the symmetry operations of a point group will result in an identical arrangment of the
+constituent elements.
+</p>
+<p>
+There are an infinite number of three dimensional point groups but the restrictions imposed by the requirements of the
+lattice limit these possible point groups to 32 in ersm of crystallography.  This means that only 32 groups of symmetry operations
+form repeatable patterns that can be placed on a 3 dimensional lattice.  These point groups can be further seperated into
+both chiral and achiral groups.  Chiral point groups contain only rotational symmetry and we will look at these first.
+Achiralpoint groups can also include mirrors and points of inversion.  In macromolecular crystallography we do not see these
+pointgroups because large molecules cannot be inverted to their mirror forms.  It is however possible to see them in small
+molecule crystals and importantly in the symmetry of diffraction patterns.
+</p>
+<h2>Rotational Symmetry</h2>
+<p>
+The pure rotation axis is probably the simplest symmetry element to comprehend since the eye naturally
+recognises the degree of symmetry that results from it: The higher the order of the rotation axis,
+the more obvious to the eye is the symmetry.
+The definition of a symmetry rotation axis of order n is a line in space about which an object may be
+rotated anticlockwise by 360°/n such that its initial and final positions are indistinguishable.
+</p>
+The simplest and commonest example is that of a dimer of two identical monomers, also called a homodimer.
+Such homodimers have a 2-fold axis and each monomer has an identical environment, with each "side" of the
+interface making the same interactions as the other as in the Yin and Yang Chinese symbol, shown below.
+<br>
+<br>
+<img id="yinyang" name="yinyang" src="Images/Yin_yang.png">
+<br>
+<div id="2fb">
+    Click for examples of 2 fold symmetry
+    </div>
+<br>
+<div id="2f" style="display: none">
+<iframe class="hidden" src="imagepopups/2fold.html" width="800px", height="1000px"></iframe>
+</div>
+<p>
+Another commonly observed rotation is the 4 fold.  Rather than the 180&deg rotation observed in the 2 fold now molecules
+are related by a 90&deg; rotation.
+</p>
+
+<a href="imagepopups/4fold.html" >
+        Click for example of 4 fold symmetry</a>
+<br>
+<p>
+The last 2 allowed forms of rotational symmetry observed in crystallography are the 3 and 6 fold.  Here molecules are related
+by either 120&deg; rotations or 60&deg; rotations.
+</p>
+<a href="imagepopups/3-6fold.html">
+    Click for example of 3 and 6 fold symmetry</a>
+<p>
+Whereas with 2 folds and 4 folds it may not be quite as clear how these final rotational symmetries can be applied to a
+repeatable lattice but if you imagine applying the same symmetry operations at the position of the rotated points (lattice point)
+we overlay and extend these points in a repeatable and familiar pattern.  Click on the images below to see this.
+</p>
+<a href="imagepopups/3-6lattice.html" >
+    Click for example of 3 and 6 fold lattice</a>
+<p>
+So why are these the only possible rotational symmetries observable in crystals?  Why not 5 folds or 8 folds?  It is simply
+because these symmetries do not form a repeatable lattice.  A rotational symetry must move a lattice point to a succession of
+repeatable lattice points.  This means if we look at the vectors between points related by rotational symmetry and transfer
+those vectors to the central point these vectors will point to the same lattice points.  If we try this with other symmetries
+it is not the case. There are more complex proofs of this which we will not go into here.
+</p>
+<a href="imagepopups/5foldlattice.html" >
+    Click for example of 5 fold lattice</a>
+
+</body>
+</html>

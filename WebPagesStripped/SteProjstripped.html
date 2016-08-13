@@ -1,0 +1,83 @@
+<div id="backblockC" class="backblock" ></div>
+<h1>
+    Point Groups part 3.
+</h1>
+<h2>
+    Stereographic Projections
+</h2>
+<p>
+    In order to make the representation of the different point groups clear there is a system of graphical representation known as
+stereographic projections.  This is simply a method of mapping spherical objects onto a plane.  Markers at the edge of the resulting
+circle would be positioned on the equator of the sphere and point in the middle at the poles.  Symmetry elements at the edges of the cirlce
+therefore represent axes perpendicular to the primary axis which is represented travelling through the poles.  Rather than lines travelling
+through the circle these perpendicular axes are represented by symbols on the edge.  Bold line crossing the circle represent mirror planes
+which are found in the point groups created by diffraction patterns.
+</p>
+<br>
+<div id="stb" class="pullb">
+    Click for examples of stereographs</div>
+<div id="st" class="popupA">
+    <iframe id="st-iframe" scrolling="no" src="../WebPages/imagepopups/dyadicstereo.html?" width="995px" height="520px"></iframe>
+    <div id="stb2" class="pullreturnA">return</div>
+</div>
+<p>
+Using this method of projection we can now build the final two point groups observed in crystallography which are observed in cubic
+spacegroups.  These are 23 and 432.  Alongside the symmetry elements perpendicular to the primary axis we can now see further axes
+aty neither pole nor equator.  The elements again form axes travelling through the central point but in intermediate positions rather than
+perpendicular to the primary axis.
+</p>
+<div id="23b" class="pullb">
+    Click for example of 23 symmetry</div>
+<div id="23" class="popup">
+    <iframe id="23-iframe" src="../Widget/Widget.html?PG=23" width="800px" height="420px"></iframe>
+    <div id="23-info" class="pullinfo">
+        <img src="../DragImages/info.svg" onmouseover="this.src='../DragImages/info-w.svg'"
+             onmouseout="this.src='../DragImages/info.svg'">
+    </div>
+    <div id="23b2" class="pullreturn">return</div>
+    <div id="23b3" class="pullreset"   >refresh</div>
+    <p>With the addition of symmetry elelemtns on neither the pole nor the equator positioning the trnasformed objects can become more difficult.
+    The symmetry operations are the same however so just follow the pattern.</p>
+</div>
+<div id="432b" class="pullb">
+    Click for example of 432 symmetry</div>
+<div id="432" class="popup">
+    <iframe id="432-iframe" src="../Widget/Widget.html?PG=432" width="800px" height="420px"></iframe>
+    <div id="432-info" class="pullinfo">
+        <img src="../DragImages/info.svg" onmouseover="this.src='../DragImages/info-w.svg'"
+             onmouseout="this.src='../DragImages/info.svg'">
+    </div>
+    <div id="432b2" class="pullreturn">return</div>
+    <div id="432b3" class="pullreset"   >refresh</div>
+    <p>This is the most complicated point group and is difficult to represent on the page because of its complexity.
+    Imagine the point group as a sphere and position your transformed objects accordingly to create the correct pattern. </p>
+</div>
+
+<script>
+    //setup the dropdown functions
+    $(document).ready(function(){
+        var butarray = ["st", "23", "432"];
+        butarray.forEach(function(item){
+            $("#"+item+"b").click(function(){
+                $("#"+item).slideToggle("slow");
+                $("#backblock2").slideToggle("slow");
+                $("#backblockC").slideToggle("slow");
+            });
+            $("#"+item+"b2").click(function(){
+                $("#"+item).slideToggle("slow");
+                $("#backblock2").slideToggle("slow");
+                $("#backblockC").slideToggle("slow");
+            });
+            document.getElementById(item+"-iframe").src = document.getElementById(item+"-iframe").src + "&login=" + login;
+
+            if (item != "st"){
+                $("#"+ item + "b3").click(function(){
+                    document.getElementById(item+"-iframe").src = document.getElementById(item+"-iframe").src;
+                });
+                $("#" +item + "-info").click(function(){
+                    $("#instructions").slideToggle("slow");
+                });
+            }
+        });
+    });
+</script>

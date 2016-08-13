@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DnD Board</title>
+</head>
+
+<style>
+    body
+    {
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    #board
+    {
+        width: 910px;
+        min-height:100px;
+
+        position:relative;
+    }
+    .title
+    {
+        background-color:#52460a;
+        text-align:center;
+        color:white;
+        padding: 2px 0px;
+    }
+
+    #inprogress
+    {
+        left:302px;
+    }
+
+    #done
+    {
+        left:604px;
+    }
+
+    #todo, #inprogress, #done
+    {
+        background-color: tan;
+        position:absolute;
+        width: 300px;
+        min-height:150px;
+        border: 2px solid black;
+
+    }
+
+    *[draggable=true]
+    {
+        float:left;
+        min-width: 50px;
+        min-height: 50px;
+        border: 2px solid black;
+        margin: 10px;
+        font-weight:bold;
+        min-height:60px;
+        background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        color-stop(0.63, white),
+        color-stop(0.92, rgb(5,161,245)));
+
+        -webkit-background-size:1px 8px;
+        -moz-background-size:1px 8px;
+        background-size:1px 8px;
+        background-repeat:repeat;
+    }
+    .cardTitle
+    {
+        background-color: rgb(255,255,255);
+        border:2px solid white;
+    }
+</style>
+
+<body>
+
+<img id="drag1" src="2fold.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+<div id="board" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="todo">
+        <div class="title">To Do</div>
+        <div id="item1" draggable="true" ondragstart="drag(event)">
+            <div class="cardTitle">
+                Learn HTML5
+            </div>
+        </div>
+        <div id="item2" draggable="true" ondragstart="drag(event)">
+            <div class="cardTitle">
+                Learn CSS3
+                </div>
+            </div>
+        <div id="sym" draggable="true" ondragstart="drag(event)">
+            <img src="2fold.png">
+            </div>
+        </div>
+    <div id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="title">In Progress</div>
+        </div>
+    <div id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="title">Done</div>
+</div>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">-->
+
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+    <!--$('document').ready(init);-->
+
+<!--function init()-->
+<!--{-->
+    <!--$('#item1, #item2, #sym').bind('dragstart', function(event) {-->
+        <!--event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));-->
+    <!--});-->
+
+    <!--$('#todo, #inprogress, #done').bind('dragover', function(event) {-->
+        <!--event.preventDefault();-->
+    <!--});-->
+
+    <!--$('#todo, #inprogress, #done').bind('drop', function(event) {-->
+        <!--var notecard = event.originalEvent.dataTransfer.getData("text/plain");-->
+        <!--event.target.appendChild(document.getElementById(notecard));-->
+        <!--// Turn off the default behaviour-->
+        <!--// without this, FF will try and go to a URL with your id's name-->
+        <!--event.preventDefault();-->
+    <!--});-->
+
+<!--}-->
+<!--</script>-->
+
+</body>
+</html>

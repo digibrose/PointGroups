@@ -1,0 +1,223 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        #div1 {width:490px;height:376px;padding:10px;border:1px solid #aaaaaa;
+            overflow:hidden; float: left;
+            background-image: url(drawing1.svg);}
+        #div2 {width:100px;height:395px;padding:0px;border:1px solid #aaaaaa;position: absolute; top: 10px; left: 530px;}
+        #div3 {width:15px;height:190px;padding: 30px; border:1px solid #aaaaaa;position: absolute; top: 5px; right: 15px;}
+        .div4 {width:10px;height:10px;border:1px solid #f2f2f2;background-color:rgba(255,255,255,0.0);}
+        #trash {width:100px;height:100px;border:1px solid #aa0000;position: absolute; bottom: 30px; right: 0px;}
+        .sprite {top: 50%; left:  50%; margin-top: -28px; margin-left: -28px; float:left; }
+        .centered1 {top: 50%; left:  50%; margin-top: -28px; margin-left: -28px; float:left;}
+        .spacer {width:10px;height:60px;}
+        #out {width:100px;height:50px;padding:10px;border:1px solid #aaaaaa;}
+        #proceedbutton{position: absolute; bottom: 1px;right: 1px; }
+    </style>
+    <!--<script>-->
+    <!--window.onload = function() {-->
+    <!--if (window.jQuery) {-->
+    <!--// jQuery is loaded-->
+    <!--alert("Yeah!");-->
+    <!--} else {-->
+    <!--// jQuery is not loaded-->
+    <!--alert("Doesn't Work");-->
+    <!--}-->
+    <!--}-->
+    <!--</script>-->
+    <!-- script comes in the text below -->
+    <script>
+        var Q= 0;
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("text");
+            var nodeCopy = document.getElementById(data).cloneNode(true);
+            nodeCopy.id = "div_" + new Date().getTime().toString();
+            // nodeCopy.name = "dropped";
+            nodeCopy.class = "centered1";
+            //nodeCopy.opacity = "1.0";
+
+
+            if (ev.target == document.getElementById("trash")) {
+                if (document.getElementById(data).parentNode.id != "div3") {
+                    var img = document.getElementById(data);
+                    img.parentNode.removeChild(img);
+                }
+            }
+            else if(document.getElementById(data).parentNode.id == "div3"){
+                ev.target.zIndex = "-100";
+                ev.target.appendChild(nodeCopy);
+                if(ev.target.class == "centered"){
+                    if ((ev.target.name == "minus" && nodeCopy.name == "InversePlus")||
+                            ev.target.name == "InversePlus" && nodeCopy.name == "minus") {
+                        ev.target.src = "InversePlus-Minus.png";
+                    }
+                    else if ((ev.target.name == "plus" && nodeCopy.name == "InverseMinus")||
+                            ev.target.name == "InverseMinus" && nodeCopy.name == "plus") {
+                        ev.target.src = "InversMinus-Plus.png";
+                    }
+                    else {
+                        alert("You can't do that");
+                    }
+                }
+            }
+            else {
+                var img = document.getElementById(data);
+                ev.target.appendChild(nodeCopy);
+                if(ev.target.class == "centered"){
+                    alert("test");
+                    ev.target.src = "InversePlus-Minus.png";
+                }
+                img.parentNode.removeChild(img);
+
+            }
+        }
+
+        function imagemerge() {
+            var gridcount = document.getElementById("div1").childNodes;
+            //    alert(gridcount[1]);
+
+            //    gridcount.forEach(imfunc);
+
+            for (i=0;i<gridcount.length;i++){
+                imfunc(gridcount[i]);
+            }
+
+        }
+
+        function imfunc(item){
+            //    alert(item);
+            var ic = item.childNodes;
+            if(ic.length > 1){
+                alert(ic[0].id);
+            }
+        }
+
+
+
+        function gridsetup(){
+
+            var onclick = function(num){return function(){alert(num)}};
+
+            for (i = 1; i < 1281; i++) {
+                var divadd = document.createElement("div");
+                divadd.className = "div4";
+                divadd.style = "float: left";
+                divadd.onclick = onclick(i);
+                document.getElementById("div1").appendChild(divadd);
+            }
+            //  document.getElementById("div4").setAttribute("onclick", alert("Blah"));
+        }
+
+        function getXML(myurl) {
+            var xhr = $.ajax({
+                url:      myurl,
+                datatype: "xml",
+                async:    false
+            });
+            return xhr.responseXML;
+        }
+
+        function check(){
+
+            var boxes = document.getElementById("div1").children;
+            var mainbox = document.getElementById("div1");
+            var count = 0;
+            var correctbox = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 311, 340, 2037, 2066];
+            var cb = 0;
+            var bolarray = [false, false, false, false];
+            var bool = true;
+//            for (var i = 0; i < boxes.length; i++){
+//                if (boxes[i].hasChildNodes()){
+//                    count ++;
+//                    cb = i;
+//                }
+//            }
+            var val = 0;
+            for (var i = 0; i<correctbox.length; i++){
+                val = correctbox[i];
+                boxes[val].style.backgroundColor = "black";
+                if (boxes[val].hasChildNodes()){
+                    bolarray[i] = true;
+                }
+            }
+            var corr = true;
+            for (j = 0; j <bolarray.length; j++){
+                if (bolarray[j] == false){
+                    corr = false;
+                }
+            }
+            if (corr) {
+                Q++;
+                var xmlDoc = getXML("questions.xml");
+                //  var out = xmlDoc.documentElement.nodeName;
+                var questions = xmlDoc.getElementsByTagName("Number")[Q].getAttribute("image");
+                mainbox.style.backgroundImage = "url(" + questions + ")";
+
+
+//               var test = xmlDoc.getElementsByTagName("Question")[0];
+//                var xlen = test.childNodes.length;
+//                var y = test.firstChild;
+//                var txt = "";
+//            var t2 = "";
+//
+//            for (i = 0; i < xlen; i++) {
+//                if (y.nodeType == 1) {
+//                    txt += " " + y.nodeName;
+//                    if (y.nodeName == 'Image'){
+//                        t2 = y.childNodes[0].nodeValue;
+//                    }
+//                }
+//                y = y.nextSibling;
+//            }
+//                window.alert(t2);
+            }
+        }
+    </script>
+    <script src="jquery-2.2.1.min.js"></script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+</div>
+<br>
+<div id="div2" ondrop="drop(event)">
+    <div id="div3" ondrop="drop(event)">
+        <img id="drag1" name="plus" class="sprite" src="Inkplus.svg" draggable="true" ondragstart="drag(event)">
+        <div class="spacer"></div>
+        <img id="drag2" name="minus" class="sprite" src="minus.png" draggable="true" ondragstart="drag(event)">
+        <div class="spacer"></div>
+        <img id="drag3" name="InversePlus" class="sprite" src="InversePlus.png" draggable="true" ondragstart="drag(event)">
+        <div class="spacer"></div>
+        <img id="drag4" name="InverseMinus" class="sprite" src="InverseMinus.png" draggable="true" ondragstart="drag(event)">
+    </div>
+    <div id="trash" ondrop="drop(event)" ondragover="allowDrop(event)">
+    </div>
+    <input id="proceedbutton" type="button" value="Press" onclick=check('#Div1')>
+</div>
+</body>
+<script>
+    gridsetup();
+
+    function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(   /[?&]+([^=&]+)=([^&]*)/gi,
+                function(m,key,value) {
+                    vars[key] = value;
+                });
+        return vars;
+    }
+
+</script>
+</body>
+</html>

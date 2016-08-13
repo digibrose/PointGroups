@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symmetry Widget</title>
+    <link rel="stylesheet" type="text/css" href="WidgetStyleSheet.css">
+    <script src="jquery-2.2.1.min.js"></script>
+    <script src="WidgetJSFunctions.js"></script>
+</head>
+<body>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+</div>
+<br>
+<div id="div2">
+    <div id="div3">
+        <img id="drag1" name="plus" class="sprite" src="../DragImages/Inkplus.svg" draggable="true" ondragstart="drag(event)">
+        <div class="spacer"></div>
+        <img id="drag2" name="minus" class="sprite" src="../DragImages/Inkminus.svg" draggable="true" ondragstart="drag(event)">
+        <div class="spacer"></div>
+        <img id="drag3" name="InversePlus" class="sprite" src="../DragImages/Inkinverseplus.svg" draggable="true" ondragstart="drag(event)">
+        <div class="spacer"></div>
+        <img id="drag4" name="InverseMinus" class="sprite" src="../DragImages/Inkinverseminus.svg" draggable="true" ondragstart="drag(event)">
+    </div>
+    <div id="trash" ondrop="drop(event)" ondragover="allowDrop(event)">
+    </div>
+    <input id="proceedbutton" type="button" value="Press" onclick=check('#Div1')>
+</div>
+</body>
+<script>
+    gridsetup();
+    //  objectDropper();
+</script>
+</body>
+</html>

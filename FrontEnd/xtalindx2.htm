@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Protein Crystallography Course Material</title>
+
+    <!-- begin CSS -->
+    <link href="style2.css" type="text/css" rel="stylesheet">
+    <script src="../Widget/jquery-2.2.1.min.js"></script>
+    <script src="xtaljs.js"></script>
+
+    <!-- end CSS -->
+</head>
+<body>
+<div id="backblock2" style="position: fixed; left: 0; top: 70px; width: 100%; height: 50px; background-color: #262626;z-index: 6; display: none;opacity: 0.2">
+</div>
+<div id="popupbox">
+    <form name="login">
+        <center>Username:</center>
+        <center><input id="username" size="14" type="text"/></center>
+        <center>Test Type</center>
+        <center><select id="testoption">
+            <option value="A">A</option>
+            <option value="B">B</option>
+        </select></center>
+        <center><input id="login" type="button" value="login" onclick=loginpage('hide') /></center>
+    </form>
+    <br />
+</div>
+<div id="top">
+<h1>Crystallographic Point Groups</h1>
+    </div>
+    <!-- begin container -->
+<div id="container">
+    <!-- begin navigation -->
+    <nav id="navigation">
+        <ul>
+            <li><a id="menui" href="#">Introduction</a></li>
+            <li><a id="menu1" href="#">Rotation Axes</a></li>
+            <li><a id="menu2" href="#">Combining Elements</a></li>
+            <li><a id="menu3" href="#">Complex Representation</a></li>
+            <li><a id="menu4" href="#">Diffraction Symmetry</a></li>
+        </ul>
+    </nav>
+    <!-- end navigation -->
+
+</div>
+<!-- end container -->
+<div id="mainblock">
+</div>
+<div id="instructions">
+    <p id ="instructions-p">
+        Drag the correct object symbol from the green box onto the grid to achieve the symmetry operations indicated in the image.
+        <br>
+        <img src="../DragImages/Inkplus-small.svg">represents an object above the plane of the page.
+        <br>
+        <img src="../DragImages/Inkminus-small.svg">represents an object below the plane of the page.
+        <br>
+        <img src="../DragImages/Inkinverseplus-small.svg"> and
+        <img src="../DragImages/Inkinverseminus-small.svg"> repesent inverted objects, these are only valid for the
+        later point groups relevant to diffraction.
+        <br>
+        If you pick the wrong object you can remove it by dragging it into the red trash square.
+        <br>
+        Certain objects can be place on top of one another to indicate that one is directly above the other.<br>
+        The resulting image will look like this:
+        <img src="../DragImages/Inkinverseplus-minus-small.svg">or<img src="../DragImages/Inkinverseminus-plus-small.svg">.
+        <br>
+        The line symbol <img src="../DragImages/line-small.svg"> is used to represent a 2 fold running across the page.<br>
+        When coming out of the page the 2 fold is represented by <img src="../DragImages/2fold-small.svg">.<br>
+        The triangle symbol <img src="../DragImages/triangle-small.svg"> represents a 3 fold.<br>
+        The square symbol <img src="../DragImages/square-small.svg"> represents a 4 fold.<br>
+        The hexagon symbol <img src="../DragImages/hex-small.svg"> represents the six fold.<br>
+        A white circle appearing in the center of a symmetry symbol <img src="../DragImages/inversion-small.svg">
+        represents a point of inversion at the center of the point group.<br>
+        Lines that are bold indicate the presence of a mirror plane.
+        <br><br>
+        To remove an object from the grid drag it to the red trach box.
+        <br><br>
+        When you think you have positioned the objects correctly press the <b>Result</b> button.
+        <br>
+        Press <b>Refresh</b> to return the widget to its original state.
+        <br>
+        Press <b>Return</b> to return to the main page.
+        <br><br>
+        Click this panel to return to the exercise.
+    </p>
+</div>
+</body>
+</html>
+
+

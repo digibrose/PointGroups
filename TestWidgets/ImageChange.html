@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Change</title>
+    <style>
+        #div1 {width:100px;height:100px;padding:10px;border:1px solid #aaaaaa;
+            overflow:hidden;}
+        #div2 {width:100px;height:395px;padding:0px;border:1px solid #aaaaaa;position: absolute; }
+        #div3 {width:10px;height:10px;padding: 0px; border:1px solid #aaaaaa;position: absolute; }
+        .div4 {width:10px;height:10px;border:1px solid #aaaaaa;opacity: 0.2;}
+        </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("text");
+            var nodeCopy = document.getElementById(data).cloneNode(true);
+            nodeCopy.id = "div_" + new Date().getTime().toString();
+            nodeCopy.name = "dropped";
+
+            if(document.getElementById(data).parentNode.id == "div3"){
+               // alert("test");
+                ev.target.appendChild(nodeCopy);
+                if(ev.target.name == "dropped"){
+                    alert("test");
+                    ev.target.src = "3fold.png";
+                }
+            }
+            else {
+                var img = document.getElementById(data);
+                ev.target.appendChild(nodeCopy);
+                img.parentNode.removeChild(img);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+</div>
+<br>
+<div id="div2" ondrop="drop(event)" style=>
+    <div id="div3" ondrop="drop(event)">
+        <img id="drag1" class="centered" src="2foldb.png" draggable="true" ondragstart="drag(event)">
+        <img id="drag2" class="centered" src="3fold.png" draggable="true" ondragstart="drag(event)">
+    </div>
+    </div>
+</body>
+</html>

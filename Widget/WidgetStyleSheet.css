@@ -1,0 +1,60 @@
+#div1 {width:490px;height:376px;padding:10px;border:1px solid #aaaaaa;
+    overflow:hidden; float: left; position: absolute; z-index: 0;
+    background-image: url(../BackGroundImages/2a.svg);}
+#div2 {width:100px;height:395px;padding:0px;border:1px solid #aaaaaa;position: absolute; top: 10px; left: 530px;}
+#div3 {
+    width:15px;
+    height:190px;
+    padding: 30px;
+    border:1px solid green;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background-color: greenyellow;
+}
+.div4 {width:10px;height:10px;border:1px solid rgba(100, 100, 100, 0.3);background-color:rgba(255,255,255,0.0);}
+.div4low {width:10px;height:10px;border:1px solid rgba(100, 100, 100, 0.3);background-color:rgba(255,255,255,0.0);z-index: -10}
+#trash {
+    width:100px;
+    height:80px;
+    border:1px solid red;
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+background-color: indianred;
+}
+.sprite {top: 50%; left:  50%; margin-top: -30px; margin-left: -19px; float:left; }
+.spacer {width:10px;height:60px;}
+#out {width:100px;height:50px;padding:10px;border:1px solid #aaaaaa;}
+#proceedbutton{
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    height: 100px;
+    width: 100px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+#proc {
+    position: absolute;
+    bottom: 8px;
+    right: 3px;
+    border-radius: 100px 100px 100px 100px;
+    background: -webkit-linear-gradient(top, #F7F7F7 0%,#EDEDED 100%);
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+    display: inline-block;
+    font: bold 24px/30px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#proc:hover {
+    box-shadow: 0 1px rgba(255,255,255,0.2) inset;
+    -webkit-box-shadow: 0 1px rgba(255,255,255,0.2) inset;
+    border-color: #262626 !important;
+    background: -webkit-linear-gradient(top, #4D4D4D 0%,#262626 100%); /* Chrome10+,Safari5.1+ */
+    color: white;
+    text-shadow: 0 1px #000;
+
+}

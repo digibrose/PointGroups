@@ -1,0 +1,25 @@
+Element id: login, , X: 728, Y: 300, [object MouseEvent], 1471097792296
+Element id: menu1, , X: 184, Y: 86, [object MouseEvent], 1471097794368
+Element id: 2fb, , X: 138, Y: 365, [object MouseEvent], 1471097798127
+Element id: drag2, , X: 576, Y: 117, [object MouseEvent], 1471097800427
+Element id: drag2, , X: 576, Y: 117, [object DragEvent], 1471097800648
+Element id: drag2, , X: 621, Y: 356, [object DragEvent], 1471097802157
+Element id: proc, , X: 593, Y: 388, [object MouseEvent], 1471097803623
+PUID: 2, Result: correct number chosen, , , ,1471097805096
+PUID: 2, Result: positions wrong, , , ,1471097805971
+Element id: div_1471097802137, , X: 317, Y: 193, [object MouseEvent], 1471097807486
+Element id: div_1471097802137, , X: 317, Y: 193, [object DragEvent], 1471097807780
+Element id: proc, , X: 585, Y: 377, [object MouseEvent], 1471097809623
+PUID: 2, Result: correct number chosen, , , ,1471097810953
+PUID: 2, Result: correct positions chosen, , , ,1471097812675
+PUID:2, Result: Type correct, , , ,1471097813568
+Element id: 2fb2, , X: 973, Y: 262, [object MouseEvent], 1471097815076
+Element id: 2afb, , X: 245, Y: 395, [object MouseEvent], 1471097816591
+Element id: drag1, , X: 570, Y: 51, [object MouseEvent], 1471097818841
+Element id: drag1, , X: 570, Y: 51, [object DragEvent], 1471097819068
+Element id: drag1, , X: 609, Y: 370, [object DragEvent], 1471097820793
+Element id: proc, , X: 586, Y: 391, [object MouseEvent], 1471097822275
+PUID: 2a, Result: correct number chosen, , , ,1471097823927
+PUID: 2a, Result: correct positions chosen, , , ,1471097824841
+PUID:2a, Result: Type correct, , , ,1471097826993
+Element id: 2afb2, , X: 977, Y: 281, [object MouseEvent], 1471097828339
